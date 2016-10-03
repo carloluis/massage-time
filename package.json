@@ -24,7 +24,8 @@
   "homepage": "https://github.com/carloluis/massage-time#readme",
   "dependencies": {
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-router": "^2.8.1"
   },
   "devDependencies": {
     "babel-core": "^6.16.0",
