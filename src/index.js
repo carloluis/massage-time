@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import routes from './config/routes'
 
 ReactDOM.render(
-    <h1>Future Massage App!</h1>,
+    routes,
     document.getElementById('app')
 );
