@@ -10,7 +10,7 @@ const Links = (props) => (
 
 const Main = (props) => {
     return (
-        <div>
+        <div className='jumbotron col-sm-12 text-center'>
             {props.children}
             <Links />
         </div>
