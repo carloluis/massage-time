@@ -2,7 +2,8 @@ import React from 'react'
 
 //Test Component... (starting with search-input custom element)
 
-var items = ['one', 'two']; //todo: to props
+var items = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 
+'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']; //todo: to props
 
 class SearchInput extends React.Component{
     constructor(props){
@@ -41,9 +42,16 @@ class SearchInput extends React.Component{
             show:false
         });
     }
-    renderItems({show, value}){        
+    renderItems({show, value}){
+        let styles = {
+            display: 'block',
+            width: 'inherit',
+            maxHeight: '200px',
+            overflow: 'auto'
+        };
+
         return show? (
-            <ul className="dropdown-menu" style={{display:'block', width:'inherit'}}>
+            <ul className="dropdown-menu" style={styles}>
                 {items.filter(i=>i.includes(value)).map(i=><li key={i} onClick={this.onItemClick}>{i}</li>)}
             </ul>
         ): null;
@@ -58,8 +66,10 @@ class SearchInput extends React.Component{
             <div className='input-group' style={{width:400}} tabIndex="0" >
                 <input type="text" className="form-control" placeholder="search..."                    
                     onChange={this.onInputChange} value={this.state.value} 
-                    onClick={this.onInputClick} />
-                <div className="input-group-addon"><span className="caret"/></div>
+                    onClick={this.onInputClick} onFocus={this.onInputClick} />
+                <div className="input-group-addon" onClick={this.onInputClick}>
+                    <span className="caret"/>
+                </div>
                 {this.renderItems(this.state)}
             </div>
         )
