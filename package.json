@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --inline --hot --progress --colors --open",
+    "dev:webpack": "webpack",
     "build": "webpack -p"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/carloluis/massage-time#readme",
   "dependencies": {
+    "express": "^4.14.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1"
