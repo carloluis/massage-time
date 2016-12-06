@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+let db = require('../db');
 
 let router = express.Router();
 let app = express();

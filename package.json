@@ -7,7 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --inline --hot --progress --colors --open",
     "dev:webpack": "webpack",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "migrate": "knex migrate:latest --env development",
+    "migrate:rollback": "knex migrate:rollback",
+    "seeds": "knex seed:run",
+    "start": "node ./server/app.js"
   },
   "repository": {
     "type": "git",
@@ -25,9 +29,11 @@
   "homepage": "https://github.com/carloluis/massage-time#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "knex": "^0.12.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^2.8.1"
+    "react-router": "^2.8.1",
+    "sqlite3": "^3.1.8"
   },
   "devDependencies": {
     "babel-core": "^6.16.0",
