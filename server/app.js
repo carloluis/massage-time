@@ -22,7 +22,7 @@ let options = {
 		res.set('x-timestamp', Date.now());
 	}
 }
-app.use('/', express.static(__dirname + '/dist', options));
+app.use('/', express.static(__dirname + '/../dist', options));
 
 
 app.use(function (req, res, next) {
@@ -38,12 +38,11 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', (req, res)=> {
-	res.sendFile(path.join(__dirname + '/dist/index.html'));
-	//res.send('Hello World!');
+	res.sendFile(path.join(__dirname + '/../dist/index.html'));
 });
 
 app.post('/', (req, res)=>{
-	res.send('POST request to the homepage');
+	res.send('POST request..');
 });
 
 app.get('/time', (req, res)=> {
@@ -67,7 +66,7 @@ router.get('/user/:id', (req, res) => {
 });
 
 app.use('/api', router);
-
+/* ****  */
 
 app.get('/junk', function (req, res) {
 	throw new Error("/junk doesn't exist");
