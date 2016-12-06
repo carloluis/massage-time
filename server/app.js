@@ -1,8 +1,7 @@
 var express = require('express');
+let router = require('./api-router');
 var path = require('path');
-let db = require('../db');
 
-let router = express.Router();
 let app = express();
 
 app.set('port', process.env.PORT || 3000);
@@ -25,6 +24,7 @@ let options = {
 }
 app.use('/', express.static(__dirname + '/../dist', options));
 
+app.use('/api', router);
 
 app.use(function (req, res, next) {
 	req.time = Date.now();
@@ -51,23 +51,6 @@ app.get('/time', (req, res)=> {
 	res.send('Time elapsed (ms): '+timespan);
 });
 
-/* /api ROUTER */
-router.use(function (req, res, next) {
-	console.log('****');
-	console.log('API Route - Time:', new Date());
-	console.log('API URL: ' + req.url);
-	console.log('****');
-	next();
-});
-router.all('/', (req, res) => res.send('<h4>hello from /api</h4>'));
-
-router.get('/user/:id', (req, res) => {
-	console.log('/user/:id: ', req.params.id);
-	res.send('user_' + req.params.id);
-});
-
-app.use('/api', router);
-/* ****  */
 
 app.get('/junk', function (req, res) {
 	throw new Error("/junk doesn't exist");
