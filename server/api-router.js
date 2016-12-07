@@ -47,8 +47,8 @@ router.post('/users', jsonParser, (req, res) => {
 
 router.delete('/users/:id', (req, res) => {
 	db.from('users').where({id: req.params.id}).del()
-		.then(function(rows){
-			res.status(200).send({status: 'ok', deleted: rows});
+		.then(function(count){
+			res.status(200).send({status: 'ok', deleted: count});
 		}).catch(err => {throw err});
 });
 
